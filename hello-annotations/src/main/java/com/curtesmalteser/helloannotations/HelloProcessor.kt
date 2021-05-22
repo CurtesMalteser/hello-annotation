@@ -40,7 +40,12 @@ class HelloProcessor: AbstractProcessor() {
 
         val fileName = "Hello$className"
 
-        val fileBuilder= FileSpec.builder(elementPackage, fileName)
+        val fileBuilder= FileSpec
+            .builder(elementPackage, fileName)
+            .addImport(
+            "android.util", "Log"
+        )
+
         val classBuilder = TypeSpec.classBuilder(fileName)
 
        classBuilder.addFunction(
@@ -53,7 +58,7 @@ class HelloProcessor: AbstractProcessor() {
                )
                .addCode(
                    """
-                    |android.util.Log.d(this::class.java.name, value)
+                    |Log.d(this::class.java.name, value)
                     |""".trimMargin()
                )
                .build()
