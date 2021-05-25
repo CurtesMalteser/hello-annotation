@@ -1,7 +1,7 @@
 package com.curtesmalteser.helloannotation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.curtesmalteser.helloannotations.HelloAnnotation
 
 @HelloAnnotation
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         val helloAnnotation = HelloMainActivity()
 
-        helloAnnotation.logDebug("this is helloAnnotation hello world!")
+        helloAnnotation.logDebug("Hello world from ${helloAnnotation::class.java.simpleName}!")
 
     }
 }
